@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.1.0)
+
 project(cartographer_superbuild)
+
 set(CMAKE_CXX_STANDARD 11)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # catkin sets this to "on" by default, which causes linking problems
 set(BUILD_SHARED_LIBS OFF)
