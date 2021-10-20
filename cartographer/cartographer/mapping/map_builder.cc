@@ -86,17 +86,18 @@ MapBuilder::MapBuilder(const proto::MapBuilderOptions& options)
   CHECK(options.use_trajectory_builder_2d() ^
         options.use_trajectory_builder_3d());
 
-  // 是2d建图还是3d建图
+  // 2D建图
   if (options.use_trajectory_builder_2d()) {
-    // 2d位姿图(后端)的初始化
+    // 2D位姿图(后端)的初始化
     pose_graph_ = absl::make_unique<PoseGraph2D>(
         options_.pose_graph_options(),
         absl::make_unique<optimization::OptimizationProblem2D>(
             options_.pose_graph_options().optimization_problem_options()),
         &thread_pool_);
   }
+  // 3D建图
   if (options.use_trajectory_builder_3d()) {
-    // 3d位姿图(后端)的初始化
+    // 3D位姿图(后端)的初始化
     pose_graph_ = absl::make_unique<PoseGraph3D>(
         options_.pose_graph_options(),
         absl::make_unique<optimization::OptimizationProblem3D>(

@@ -30,11 +30,11 @@ namespace cartographer_ros {
 // Top-level options of Cartographer's ROS integration.
 struct NodeOptions {
   ::cartographer::mapping::proto::MapBuilderOptions map_builder_options;
-  std::string map_frame;
-  double lookup_transform_timeout_sec;
-  double submap_publish_period_sec;
-  double pose_publish_period_sec;
-  double trajectory_publish_period_sec;
+  std::string map_frame;                  // 地图帧
+  double lookup_transform_timeout_sec;    
+  double submap_publish_period_sec;       // 子地图发布频率
+  double pose_publish_period_sec;         // 位姿发布频率
+  double trajectory_publish_period_sec;   // 轨迹发布频率
   bool publish_to_tf = true;
   bool publish_tracked_pose = false;
   bool use_pose_extrapolator = true;

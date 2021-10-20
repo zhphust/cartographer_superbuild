@@ -69,7 +69,7 @@ std::string ConfigurationFileResolver::GetFileContentOrDie(
   CHECK(!basename.empty()) << "File basename cannot be empty." << basename;
 
   // 根据文件名查找是否在给定文件夹中存在
-  const std::string filename = GetFullPathOrDie(basename);
+  const std::string filename = GetFullPathOrDie(basename);   // 得到绝对路径下的文件名
   std::ifstream stream(filename.c_str());
 
   // 读取配置文件内容并返回

@@ -70,7 +70,7 @@ NodeOptions CreateNodeOptions(
  * 
  * @param[in] configuration_directory 配置文件所在目录
  * @param[in] configuration_basename 配置文件的名字
- * @return std::tuple<NodeOptions, TrajectoryOptions> 返回节点的配置与轨迹的配置
+ * @return std::tuple<NodeOptions, TrajectoryOptions> 返回节点与轨迹的配置
  */
 std::tuple<NodeOptions, TrajectoryOptions> LoadOptions(
     const std::string& configuration_directory,
@@ -80,11 +80,11 @@ std::tuple<NodeOptions, TrajectoryOptions> LoadOptions(
       absl::make_unique<cartographer::common::ConfigurationFileResolver>(
           std::vector<std::string>{configuration_directory});
         
-  // 读取配置文件内容到code中
+  // 读取配置文件内容
   const std::string code =
       file_resolver->GetFileContentOrDie(configuration_basename);
 
-  // 根据给定的字符串, 生成一个lua字典
+  // 根据文件内容, 生成lua字典
   cartographer::common::LuaParameterDictionary lua_parameter_dictionary(
       code, std::move(file_resolver));
 
